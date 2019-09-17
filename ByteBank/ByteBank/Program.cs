@@ -11,19 +11,29 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine(Funcionario.TotalDeFuncionarios);
+
+
+            Funcionario carlos = new Funcionario(2000.0, "567.890.012-34");  // É um funcionario
+            carlos.Nome = "Carlos";
+            carlos.AumentarSalario();
+            Console.WriteLine("Novo salário do Carlos " + carlos.Salario);
+
+            Console.WriteLine(Funcionario.TotalDeFuncionarios);
+            
+            Diretor roberta = new Diretor("567.098.210-34");
+            roberta.Nome = "Roberta";
+            roberta.AumentarSalario();
+
+            Console.WriteLine("Novo salário da Roberta " + roberta.Salario);
+
+            Console.WriteLine(Funcionario.TotalDeFuncionarios);
+
             GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
 
-            Funcionario carlos = new Funcionario();  // É um funcionario
-            carlos.Nome = "Carlos";
-            carlos.CPF = "567.890.012-34";
-            carlos.Salario = 2000.0;
             gerenciador.Registrar(carlos);
-            
-            Diretor roberta = new Diretor();
-            roberta.Nome = "Roberta";
-            roberta.CPF = "567.098.210-34";
-            roberta.Salario = 5000.0;
-            gerenciador.Registrar(roberta);
+            //gerenciador.Registrar(roberta);
 
             Console.WriteLine(carlos.Nome);
             Console.WriteLine(carlos.GetBonificacao());
@@ -33,8 +43,8 @@ namespace ByteBank
             Console.WriteLine(roberta.GetBonificacao());
             Console.WriteLine();
 
-            Console.WriteLine("Total bonificação: ");
-            Console.WriteLine(gerenciador.GetTotalBonificacao());
+           // Console.WriteLine("Total bonificação: ");
+           // Console.WriteLine(gerenciador.GetTotalBonificacao());
 
             Console.ReadLine();
         }

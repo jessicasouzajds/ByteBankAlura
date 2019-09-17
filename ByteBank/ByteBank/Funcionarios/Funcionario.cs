@@ -8,9 +8,29 @@ namespace ByteBank.Funcionarios
 {
     public class Funcionario
     {
+        public static int TotalDeFuncionarios { get; private set; }
+
+        // Private < Protected < Public
         public string Nome { get; set; }
-        public string CPF { get; set; }
-        public double Salario { get; set; }
+        public string CPF { get; private set; }
+        public double Salario { get; protected set; }
+
+        public Funcionario(double salario, string cpf)
+        {
+            CPF = cpf;
+            Salario = salario;
+            TotalDeFuncionarios++;
+        }
+
+        public Funcionario(string cPF)
+        {
+            CPF = cPF;
+        }
+
+        public virtual void AumentarSalario()
+        {
+            Salario *= 1.1;
+        }
 
         // Método virtual: Funcionário cria ele, mas outra classe que sobrepõe esse método pode alterar suas propriedades.
         public virtual double GetBonificacao()

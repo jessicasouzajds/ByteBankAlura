@@ -7,9 +7,17 @@ using ByteBank.Funcionarios;
 
 namespace ByteBank
 {
-    public class GerenciadorBonificacao : Funcionario
+    public class GerenciadorBonificacao
     {
         private double _totalBonificacao;
+
+        public GerenciadorBonificacao(double Salario, string CPF) //: base(Salario, CPF)
+        {
+        }
+
+        public GerenciadorBonificacao()
+        {
+        }
 
         public void Registrar(Funcionario funcionario)
         {
