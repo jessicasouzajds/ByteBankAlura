@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
-    public class Funcionario
+    public abstract class Funcionario  // Existe apenas para ganhar polimorfismo, não é permitido instanciá-la.
     {
         public static int TotalDeFuncionarios { get; private set; }
 
@@ -27,15 +27,12 @@ namespace ByteBank.Funcionarios
             CPF = cPF;
         }
 
-        public virtual void AumentarSalario()
-        {
-            Salario *= 1.1;
-        }
+        public abstract void AumentarSalario();  // o método abstrato obriga a classe que herdou este a criar seu próprio método para sobrescrevê-lo
 
-        // Método virtual: Funcionário cria ele, mas outra classe que sobrepõe esse método pode alterar suas propriedades.
-        public virtual double GetBonificacao()
-        {
-            return Salario * 0.10;
-        }
+
+    // Método virtual: Funcionário cria ele, mas outra classe que sobrepõe esse método pode alterar suas propriedades.
+    public abstract double GetBonificacao();
+
     }
 }
+// métodos abstratos, apenas em classes abstratas
