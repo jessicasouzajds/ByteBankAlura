@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ByteBank.Sistemas;
 
 namespace ByteBank.Funcionarios
 {
-    public class GerenteDeConta : Funcionario    // Herança.
+    public class GerenteDeConta : FuncionarioAutenticavel    // Herança.
     {
 
         public GerenteDeConta(string CPF) : base(4000, CPF)

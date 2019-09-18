@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ByteBank.Funcionarios;
+using ByteBank.Sistemas;
 
 namespace ByteBank
 {
@@ -12,8 +13,33 @@ namespace ByteBank
         static void Main(string[] args)
         {
             CalcularBonificacao();
+
+            UsarSistema();
+
             Console.ReadLine();
         }
+
+        public static void UsarSistema()
+        {
+            SistemaInterno sistemaInterno = new SistemaInterno();
+
+            Diretor douglas = new Diretor("788.756.725-76");
+            douglas.Nome = "Douglas";
+            douglas.Senha = "eterno";
+
+            Diretor giovani = new Diretor("455.211.646-44");
+            giovani.Nome = "Giovani";
+            giovani.Senha = "schommer";
+
+            ParceiroComercial parceiroComercial = new ParceiroComercial();
+            parceiroComercial.Senha = "123456";
+
+            sistemaInterno.Logar(parceiroComercial, "123456");
+            sistemaInterno.Logar(douglas, "eterno");
+            sistemaInterno.Logar(giovani, "schommer");
+
+        }
+
 
         public static void CalcularBonificacao()  // Métodos estáticos não podem chamar métodos não estáticos.
         {

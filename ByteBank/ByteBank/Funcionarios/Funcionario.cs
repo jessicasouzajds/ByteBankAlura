@@ -27,11 +27,10 @@ namespace ByteBank.Funcionarios
             CPF = cPF;
         }
 
+        // Método virtual: Funcionário cria ele, mas outra classe que sobrepõe esse método pode alterar suas propriedades.
         public abstract void AumentarSalario();  // o método abstrato obriga a classe que herdou este a criar seu próprio método para sobrescrevê-lo
 
-
-    // Método virtual: Funcionário cria ele, mas outra classe que sobrepõe esse método pode alterar suas propriedades.
-    public abstract double GetBonificacao();
+        public abstract double GetBonificacao();
 
     }
 }
